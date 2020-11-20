@@ -21,9 +21,9 @@ services:
         depends_on:
             - elasticsearch
         networks:
-            - zeebe_network:
+            zeebe_network:
                 aliases: 
-                    - "zeebe"
+                    - zeebe
         container_name: zeebe
 
     operate:
@@ -36,9 +36,9 @@ services:
         volumes:
             - ./operate.yml:/usr/local/operate/config/application.yml
         networks:
-            - zeebe_network:
+            zeebe_network:
                 aliases: 
-                    - "operate"
+                    - operate
         container_name: operate
 
     elasticsearch:
@@ -50,9 +50,9 @@ services:
             - cluster.name=elasticsearch
             - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
         networks:
-            - zeebe_network:
+            zeebe_network:
                 aliases:
-                    - "elasticsearch"
+                    - elasticsearch
         container_name: elasticsearch
 
 
@@ -66,9 +66,9 @@ services:
             - ./../.lib/scooter-web-api/:/app/
             - n_modules:/app/node_modules
         networks:
-            - zeebe_network:
+            zeebe_network:
                 aliases:
-                    - "scooter_web_api"
+                    - scooter_web_api
         depends_on:
             - zeebe
             - elasticsearch
