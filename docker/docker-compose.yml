@@ -5,7 +5,6 @@ networks:
 
 volumes:
     data:
-    elasticsearch_data:
     n_modules:
 
 services:
@@ -44,8 +43,6 @@ services:
             - discovery.type=single-node
             - cluster.name=elasticsearch
             - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-        volumes:
-            - elasticsearch_data:/usr/share/elasticsearch/data
         networks:
             - zeebe_network
 
