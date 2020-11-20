@@ -56,7 +56,7 @@ public class Application {
       // System.out.println(minutes * costPerMinute);
       // System.out.println(payedValue);
 
-      if(minutes * costPerMinute == payedValue) {
+      if(minutes * costPerMinute != payedValue) {
         System.out.println("PAYED CORRECTLY");
         final Map<String, Object> result = new HashMap<>();
         result.put("paymentSuccess", true);

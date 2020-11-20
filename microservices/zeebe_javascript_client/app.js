@@ -10,7 +10,7 @@ const handler = (job, complete, worker) => {
 	// Maybe something wrong here?
 	console.log(minutes, costPerMinute, payedValue);
 
-	if(minutes * costPerMinute === payedValue) {
+	if(minutes * costPerMinute !== payedValue) {
 		console.log("PAYED CORRECTLY");
 		complete.success({paymentSuccess: true});
 	} else {
