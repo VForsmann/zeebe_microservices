@@ -23,7 +23,7 @@ services:
         networks:
             - zeebe_network:
                 aliases: 
-                    - zeebe
+                    - "zeebe"
         container_name: zeebe
 
     operate:
@@ -38,7 +38,7 @@ services:
         networks:
             - zeebe_network:
                 aliases: 
-                    - operate
+                    - "operate"
         container_name: operate
 
     elasticsearch:
@@ -52,7 +52,7 @@ services:
         networks:
             - zeebe_network:
                 aliases:
-                    - elasticsearch
+                    - "elasticsearch"
         container_name: elasticsearch
 
 
@@ -68,7 +68,7 @@ services:
         networks:
             - zeebe_network:
                 aliases:
-                    - scooter_web_api
+                    - "scooter_web_api"
         depends_on:
             - zeebe
             - elasticsearch
