@@ -7,6 +7,8 @@ const http2 = require("http2");
 const eventEmitter = new events.EventEmitter();
 const port = 8090;
 
+let zbc = null;
+
 app.use(cors({ origin: "*" }));
 app.use(bodyParser.json());
 app.use("/", express.static("public"));
@@ -14,9 +16,14 @@ app.use("/", express.static("public"));
 const expressWs = require("express-ws")(app);
 
 app.post("/book", async (req, res) => {
-    console.log("Recieved Booking Request for Scooter ID_" + req.body.scooterId + " - handing over to Zeebe!");
-    const result = await zbc.createWorkflowInstance("scooter_booking", req.body);
-    console.log("Zeebe accepted with workflowKey: " + result.workflowKey);
+	if(zbc) {
+		console.log("Recieved Booking Request for Scooter ID_" + req.body.scooterId + " - handing over to Zeebe!");
+		const result = await zbc.createWorkflowInstance("scooter_booking", req.body);
+		console.log("Zeebe accepted with workflowKey: " + result.workflowKey);
+	} else {
+		console.log("ZEEBE NOT CONNECTED YET; IGNORING REQUEST");
+	}
+
     res.sendStatus(200);
 });
 
@@ -83,6 +90,11 @@ async function alive() {
 			client.on("socketError", () => {
 				console.log("WAITING FOR ZEEBE TO START");
 				setTimeout(() => func(), 1000);
+			});
+
+			client.on("connect", () => {
+				console.log("ZEEBE CONNTECTED!");
+				resolve();
 			})
         };
         func();
@@ -90,9 +102,10 @@ async function alive() {
 }
 
 const startUpZeebeClient = async () => {
-    await alive();
+	await alive();
+	console.log("STARTING ZEEBE CLIENTS");
     const ZB = require("zeebe-node");
-    const zbc = new ZB.ZBClient("zeebe:26500");
+    zbc = new ZB.ZBClient("zeebe:26500");
 
     const bookScooter = zbc.createWorker("book_scooter", book_scooter);
     const sendSuccessNotification = zbc.createWorker("send_success_notification", send_success_notification);
