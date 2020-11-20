@@ -1,0 +1,15 @@
+// @import "custom";
+@import "~bootstrap/scss/bootstrap";
+
+html, body {
+    font-family: 'Rhodium Libre', serif;
+}
+
+root-el {
+    display: flex;
+    flex-direction: column;
+}
+
+.main_outlet {
+    margin: 20px;
+}

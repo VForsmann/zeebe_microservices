@@ -1,0 +1,13 @@
+version: "3.8"
+
+networks:
+    docker_zeebe_network:
+        external: true
+        
+services: 
+    zeebe_java:
+        container_name: zeebe_java
+        build:
+            context: ./
+        networks:
+            - docker_zeebe_network

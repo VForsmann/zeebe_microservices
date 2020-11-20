@@ -1,0 +1,46 @@
+{
+    "scooters": [
+        {
+            "id": 1,
+            "name": "Scooter1",
+            "description": "Dieser Scooter steht an der FH-Münster",
+            "image": "https://images.pexels.com/photos/3671151/pexels-photo-3671151.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "costperMinute": 2
+        },
+        {
+            "id": 2,
+            "name": "Scooter2",
+            "description": "Dieser Scooter steht an der FH-Münster",
+            "image": "https://images.pexels.com/photos/3671151/pexels-photo-3671151.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "costperMinute": 1
+        },
+        {
+            "id": 3,
+            "name": "Scooter3",
+            "description": "Dieser Scooter steht an der FH-Münster",
+            "image": "https://images.pexels.com/photos/3671151/pexels-photo-3671151.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "costperMinute": 3
+        },
+        {
+            "id": 4,
+            "name": "Scooter4",
+            "description": "Dieser Scooter steht an der FH-Münster",
+            "image": "https://images.pexels.com/photos/3671151/pexels-photo-3671151.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "costperMinute": 4
+        },
+        {
+            "id": 5,
+            "name": "Scooter5",
+            "description": "Dieser Scooter steht an der FH-Münster",
+            "image": "https://images.pexels.com/photos/3671151/pexels-photo-3671151.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "costperMinute": 1
+        },
+        {
+            "id": 6,
+            "name": "Scooter6",
+            "description": "Dieser Scooter steht an der FH-Münster",
+            "image": "https://images.pexels.com/photos/3671151/pexels-photo-3671151.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "costperMinute": 5
+        }
+    ]
+}

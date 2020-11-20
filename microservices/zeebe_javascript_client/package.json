@@ -1,0 +1,14 @@
+{
+  "name": "zeebe_nodejs",
+  "version": "0.0.1",
+  "description": "NodeJS Server as Zeebe Client",
+  "author": "Vitus Forsmann <vitus.forsmann@hotmail.de>",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "zeebe-node": "^0.25.0",
+    "nodemon": "2.0.4"
+  }
+}

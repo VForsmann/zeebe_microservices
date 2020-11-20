@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0yrglcj" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Zeebe Modeler" exporterVersion="0.10.0">
+  <bpmn:process id="register_process" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Register Customer">
+      <bpmn:outgoing>Flow_03h7kct</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_03h7kct" sourceRef="StartEvent_1" targetRef="create_customer" />
+    <bpmn:boundaryEvent id="Event_1yh7y11" attachedToRef="create_customer">
+      <bpmn:outgoing>Flow_1mx2228</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_0evzklo" errorRef="Error_10kfz2c" />
+    </bpmn:boundaryEvent>
+    <bpmn:sequenceFlow id="Flow_1mx2228" name="Invalid E-Mail" sourceRef="Event_1yh7y11" targetRef="send_rejection" />
+    <bpmn:sequenceFlow id="Flow_15mbspn" sourceRef="create_customer" targetRef="send_acception" />
+    <bpmn:endEvent id="Event_092smxf" name="Customer Registered">
+      <bpmn:incoming>Flow_05nrg13</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_05nrg13" sourceRef="send_acception" targetRef="Event_092smxf" />
+    <bpmn:endEvent id="Event_128jvdu" name="Customer not Registered">
+      <bpmn:incoming>Flow_0keqd34</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0keqd34" sourceRef="send_rejection" targetRef="Event_128jvdu" />
+    <bpmn:serviceTask id="create_customer" name="Create Customer">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="create_customer" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_03h7kct</bpmn:incoming>
+      <bpmn:outgoing>Flow_15mbspn</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="send_acception" name="Send Acception">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="send_acception" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_15mbspn</bpmn:incoming>
+      <bpmn:outgoing>Flow_05nrg13</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="send_rejection" name="Send Rejection">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="send_rejection" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1mx2228</bpmn:incoming>
+      <bpmn:outgoing>Flow_0keqd34</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmn:error id="Error_10kfz2c" name="email_invalid" errorCode="email_invalid" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="register_process">
+      <bpmndi:BPMNEdge id="Flow_0keqd34_di" bpmnElement="Flow_0keqd34">
+        <di:waypoint x="530" y="240" />
+        <di:waypoint x="592" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_05nrg13_di" bpmnElement="Flow_05nrg13">
+        <di:waypoint x="530" y="117" />
+        <di:waypoint x="592" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15mbspn_di" bpmnElement="Flow_15mbspn">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="430" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1mx2228_di" bpmnElement="Flow_1mx2228">
+        <di:waypoint x="350" y="175" />
+        <di:waypoint x="350" y="240" />
+        <di:waypoint x="430" y="240" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="276" y="205" width="67" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03h7kct_di" bpmnElement="Flow_03h7kct">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="173" y="142" width="49" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_092smxf_di" bpmnElement="Event_092smxf">
+        <dc:Bounds x="592" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="583" y="142" width="54" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_128jvdu_di" bpmnElement="Event_128jvdu">
+        <dc:Bounds x="592" y="222" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="577" y="265" width="66" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1tw6uin_di" bpmnElement="create_customer">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ifwf3y_di" bpmnElement="send_acception">
+        <dc:Bounds x="430" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1jt2le2_di" bpmnElement="send_rejection">
+        <dc:Bounds x="430" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1mf4ke7_di" bpmnElement="Event_1yh7y11">
+        <dc:Bounds x="332" y="139" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

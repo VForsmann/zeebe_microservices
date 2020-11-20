@@ -1,0 +1,19 @@
+{
+  "name": "zeebe_nodejs",
+  "version": "0.0.1",
+  "description": "NodeJS Server as Zeebe Client",
+  "author": "Vitus Forsmann <vitus.forsmann@hotmail.de>",
+  "main": "app.js",
+  "scripts": {
+    "start": "npm i & node app.js",
+    "watch": "npm i & nodemon"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "cors": "^2.8.5",
+    "body-parser": "^1.19.0",
+    "zeebe-node": "^0.24.0",
+    "express-ws": "4.0.0"
+  }
+}

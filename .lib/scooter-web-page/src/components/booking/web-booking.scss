@@ -1,0 +1,42 @@
+web-booking {
+    margin-top: 15px;
+    display: block;
+    width: 1000px;
+    margin: 30px auto;
+
+    .scooter-carousel {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow: auto;
+        > div  {
+            flex-shrink: 0;
+            margin: 10px;
+        }
+
+        .active {
+            border: 3px solid lightgreen;
+        }
+
+    }
+
+    hr {
+        margin-bottom: 40px;
+    }
+
+    vaadin-time-picker {
+        width: 100%;
+    }
+
+    .bezahlen {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    web-booking {
+        width: 100%;
+    }
+    
+}

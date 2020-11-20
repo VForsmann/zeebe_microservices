@@ -1,0 +1,1 @@
+../zbctl/zbctl --insecure deploy ./scooter-booking.bpmn

@@ -1,0 +1,1 @@
+../zbctl/zbctl --insecure deploy ./data/example_registration.bpmn

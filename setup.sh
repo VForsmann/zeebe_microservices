@@ -1,0 +1,1 @@
+wget -c https://github.com/zeebe-io/zeebe-modeler/releases/download/v0.10.0/zeebe-modeler-0.10.0-linux-x64.tar.gz -O - | tar -xz -C ./.lib/

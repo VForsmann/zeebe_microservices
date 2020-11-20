@@ -1,0 +1,1 @@
+./.lib/zeebe-modeler-0.10.0-linux-x64/zeebe-modeler

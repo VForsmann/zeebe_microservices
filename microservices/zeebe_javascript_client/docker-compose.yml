@@ -1,0 +1,16 @@
+version: "3.8"
+
+networks:
+    docker_zeebe_network:
+        external: true
+        
+services: 
+    zeebe_nodejs:
+        container_name: zeebe_nodejs
+        build:
+            context: ./
+        volumes:
+            - ./:/app/
+            - /app/node_modules
+        networks:
+            - docker_zeebe_network
