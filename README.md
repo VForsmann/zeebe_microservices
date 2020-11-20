@@ -5,7 +5,7 @@ Dieses Repository enthält alle Kernkozepte von Zeebe: Einer Workflow Engine fü
 # Vorbereitung für die Übungen
 
 1. Bitte führen Sie nach einem clone dieses Repositorys ein `bash setup.sh` aus.
-2. Anschließend gehen Sie in das docker-Verzeichnis und führen Sie `docker-compose up` aus
+2. Anschließend gehen Sie in das docker-Verzeichnis und führen Sie `docker-compose up --force-recreate` aus
 3. Testen Sie ob alles geklapt hat indem Sie http://localhost:8080 besuchen und sich in Camunda-Operate mit Benutzernamen `demo` und Passwort `demo` anmelden.
 4. Zudem sollte unter http://localhost:8090 eine Website für die "Scooter-Buchung" erreichbar sein.
 5. Testen Sie ebenfalls das Kommando `bash zeebe-modeler.sh`. Es sollte sich der Zeebe-Modeler öffnen.
