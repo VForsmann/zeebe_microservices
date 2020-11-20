@@ -13,3 +13,5 @@ Dieses Repository enthält alle Kernkozepte von Zeebe: Einer Workflow Engine fü
 Falls alles reibungslos funktioniert hat sind Sie bereit für die Übung. Vergessen Sie nicht die docker-container aus Schritt 2 "gracefully" herunterzufahren indem Sie STRG+C im Terminal drücken oder in einem paralellen Terminal den Befehl `docker-compose stop` verwenden.
 
 Vielen Dank!
+
+Getestet unter Linux-VM von Prof. Thöne; Linux Mint 19.3 Cinnamon
